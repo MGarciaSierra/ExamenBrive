@@ -1,0 +1,48 @@
+﻿@model Atributos.Sucursal
+@{
+    ViewBag.Title = "Formulario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Usuario</h1>
+            <h5>Ingrese los Datos de Sucursal para registrar una nueva: </h5>
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Formulario", "Sucursal", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-group">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.IdSucursal, new { @class = "hidden" })
+                @Html.TextBoxFor(model => model.IdSucursal, new { @class = "hidden form-control" })
+            </div>
+        </div>
+        <br />
+
+            <div class="col-md-3">
+
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @autocomplete = "off", @placeholder = "Nombre", @onkeypress = "return SoloLetras('event','LblNombreError')" })
+                <label id="LblNombreError"></label>
+            </div>
+           
+                <div class="col-md-3">
+
+                    @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control", @autocomplete = "off", @placeholder = "Direccion" })
+                </div>
+
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", @autocomplete = "off", @placeholder = "Telefono", @onkeypress = "retun SoloLetras(event,'lblApellidoPaternoError')" })
+                </div>
+
+        <div class="form-group">
+            <div class="col-md-3">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+                @Html.ActionLink("Regresar", "Mostrar", "Sucursal", htmlAttributes: new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    }
+</div>
+
+

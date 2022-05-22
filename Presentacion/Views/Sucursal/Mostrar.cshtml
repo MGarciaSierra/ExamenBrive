@@ -1,0 +1,70 @@
+﻿@model Atributos.Sucursal
+@{
+    ViewBag.Title = "Mostrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Sucursales</h1>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h5>En esta vista puedes agregar una nueva sucursal, modificar alguna existente y elimar</h5>
+            <hr />
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">@Html.ActionLink("+", "Formulario", "Sucursal", htmlAttributes: new { @class = "btn btn-success" })</p>
+        </div>
+    </div>
+    @if (Model.Sucursales.Count > 0 && Model.Sucursales != null)
+    {
+        <div class="row">
+            <div class="col-md-12 text-center ">
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                        <tr class="text-center">
+                            <td>Editar</td>
+                            <td class="hidden"> IdSucursal</td>
+                            <td>Nombre</td>
+                            <td>Direccion</td>
+                            <td>Telefono</td>
+                            <td>Eliminar</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Atributos.Sucursal sucursal in Model.Sucursales)
+                        {
+                            <tr class="align-content-center">
+                                <td><a class="btn btn-warning glyphicon glyphicon-edit" href="@Url.Action("Formulario","Sucursal", new { IdSucursal = sucursal.IdSucursal })"></a></td>
+                                <td class="hidden">@sucursal.IdSucursal</td>
+                                <td>@sucursal.Nombre</td>
+                                <td>@sucursal.Direccion</td>
+                                <td>@sucursal.Telefono</td>
+                                <td><a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("Eliminar", "Sucursal", new { IdSucursal = sucursal.IdSucursal})" onclick="return confirm ('Estas seguro que deseas borrar la Sucursal');"></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            No se encontraron Datos
+        </div>
+    }
+</div>
+
+
+

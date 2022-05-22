@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f8b9f8eec9e4e1fb75f464874854916" Name="Diagram1">
+        <EntityTypeShape EntityType="BriveSucursalModel.DetalleVenta" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BriveSucursalModel.MetodoPago" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BriveSucursalModel.Producto" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BriveSucursalModel.Sucursal" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BriveSucursalModel.SucursalProducto" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BriveSucursalModel.Usuario" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BriveSucursalModel.Venta" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="BriveSucursalModel.FK__DetalleVe__IdPro__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="BriveSucursalModel.FK__DetalleVe__IdSuc__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="BriveSucursalModel.FK__DetalleVe__IdVen__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="BriveSucursalModel.FK__Venta__IdMetodoP__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="BriveSucursalModel.FK__SucursalP__IdPro__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="BriveSucursalModel.FK__SucursalP__IdSuc__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="BriveSucursalModel.FK__Venta__IdUsuario__25869641" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

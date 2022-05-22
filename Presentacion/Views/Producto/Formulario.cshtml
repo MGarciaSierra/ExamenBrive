@@ -1,0 +1,82 @@
+﻿@model Atributos.Producto
+@{
+    ViewBag.Title = "Formulario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Producto</h1>
+            <h5>Ingrese los Datos del Producto para registrar uno nuevo: </h5>
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Formulario", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.IdProducto, new { @class = "hidden" })
+            @Html.TextBoxFor(model => model.IdProducto, new { @class = "hidden form-control" })
+        </div>
+
+        <br />
+
+
+
+        <div class="col-md-3">
+            <label>Nombre</label>
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @autocomplete = "off", @placeholder = "Nombre", @onkeypress = "return SoloLetras('event','LblNombreError')" })
+
+        </div>
+
+
+
+        <div class="col-md-3">
+            <label>Descripcion</label>
+            @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control", @autocomplete = "off", @placeholder = "Descripcion" })
+        </div>
+
+
+
+
+
+        <div class="col-md-3">
+            <label>Precio</label>
+            @Html.TextBoxFor(model => model.Precio, new { @class = "form-control", @autocomplete = "off", @placeholder = "Precio" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-3">
+                <label>Cargar Imagen</label>
+                <input type="file" name="ImagenData" onchange="readURL(this);">
+                @if (Model.Imagen != null)
+                {
+                    <img id="ImagenPreview" src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Imagen)" width="100" height="100" />
+                }
+                else
+                {
+                    <img id="ImagenPreview" src="~/Content/Img/sinproducto.png" style=" height:150px; width:150px;" />
+                }
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label>Stock</label>
+            @Html.TextBoxFor(model => model.Stock, new { @class = "form-control", @autocomplete = "off", @placeholder = "Stock" })
+
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-3">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+                @Html.ActionLink("Regresar", "Mostrar", "Producto", htmlAttributes: new { @class = "btn btn-danger" })
+            </div>
+        </div>
+        <br />
+        @Html.HiddenFor(model => model.Imagen)
+    }
+</div>
+
+
