@@ -51,6 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brive.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Brive.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Brive.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Brive.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Brive.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Brive.edmx</DependentUpon>
+    </Compile>
     <Compile Include="BriveSucursal.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,41 +83,47 @@
     </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="DetalleVenta.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="DetalleVentaIdVenta_Result.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="MetodoPago.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="Producto.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductoMostrarTodo_Result.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductoMostrarUno_Result.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sucursal.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalMostrarUno_Result.cs">
+      <DependentUpon>Brive.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalMostrar_Result.cs">
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="SucursalProducto.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="UsuarioMostrarTodo_Result.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="UsuarioMostrarUno_Result.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
     <Compile Include="Venta.cs">
-      <DependentUpon>BriveSucursal.tt</DependentUpon>
+      <DependentUpon>Brive.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +132,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BriveSucursal.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Brive.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Brive.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Brive.edmx.diagram">
+      <DependentUpon>Brive.edmx</DependentUpon>
+    </None>
     <None Include="BriveSucursal.edmx.diagram">
       <DependentUpon>BriveSucursal.edmx</DependentUpon>
     </None>
@@ -120,6 +148,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Brive.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Brive.edmx</DependentUpon>
+      <LastGenOutput>Brive.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Brive.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Brive.edmx</DependentUpon>
+      <LastGenOutput>Brive.cs</LastGenOutput>
+    </Content>
     <Content Include="BriveSucursal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BriveSucursal.edmx</DependentUpon>

@@ -15,12 +15,14 @@ namespace Presentacion.Controllers
            
             Atributos.DetalleVenta ventaProducto = new Atributos.DetalleVenta();
             Atributos.Result result = LogicaNegocio.DetalleVenta.DetalleVentaIdVenta(IdVenta);
+            
             Atributos.Result resultStock = new Atributos.Result();
             
             if (result.Correct)
             {
                 ventaProducto.DetalleVentas = result.Objects;
                 return View("Detalle", ventaProducto);
+               
             }
 
             else

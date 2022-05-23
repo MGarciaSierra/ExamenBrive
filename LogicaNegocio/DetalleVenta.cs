@@ -75,7 +75,7 @@ namespace LogicaNegocio
             Atributos.Result result = new Atributos.Result();
             try
             {
-                using (AccesoDatos.BriveSucursalEntitiest context = new AccesoDatos.BriveSucursalEntitiest())
+                using (AccesoDatos.BriveSucursalEntities context = new AccesoDatos.BriveSucursalEntities())
                 {
                     var query = context.DetalleVentaIdVenta(IdVenta).ToList();
                     result.Objects = new List<object>();

@@ -13,12 +13,6 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <h5></h5>
-        <hr />
-    </div>
-</div>
 
 
 <div class="row">
@@ -39,7 +33,7 @@
 
                             else
                             {
-                                <p><img src="~/Content/SIN-IMAGEN.jpg" style=" height:150px; width:150px;" /></p>
+                                <p><img src="~/Content/Img/sinproducto.png" style=" height:150px; width:150px;" /></p>
                             }
 
                             <h4 class="card-title">@producto.Nombre</h4>
@@ -55,48 +49,5 @@
     </div>
         }
     }
-
 </div>
-
-@Scripts.Render("~/bundles/jquery")
-
-<script type="text/javascript">
-
-    $(document).ready(function () {
-
-        $("#ddlArea").change(function () {
-
-            $("#ddlDepartamento").empty();
-
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("GetDepartamento")',
-                data: { IdArea: $("#ddlArea").val() },
-                success: function (departamentos) {
-
-
-                    $.each(departamentos, function (i, departamentos) {
-                        $("#ddlDepartamento").append('<option value="'
-                            + departamentos.IdDepartamento + '">'
-                            + departamentos.Nombre + '</option>');
-                    });
-                },
-                error: function (ex) {
-                    alert('Failed. ' + ex);
-                }
-            });
-        });
-    })
-</script>
-
-
-<style>
-    .card {
-        transition: transform 0.2s ease;
-        box-shadow: 0 6px 8px 0 rgba(22, 22, 26, 0.18);
-        border-radius: 0;
-        border: 0;
-        margin-bottom: 2em;
-    }
-</style>
 

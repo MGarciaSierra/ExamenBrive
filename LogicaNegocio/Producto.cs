@@ -17,7 +17,7 @@ namespace LogicaNegocio
             Atributos.Result result = new Atributos.Result();
             try
             {
-                using (AccesoDatos.BriveSucursalEntitiest context = new AccesoDatos.BriveSucursalEntitiest())
+                using (AccesoDatos.BriveSucursalEntities context = new AccesoDatos.BriveSucursalEntities())
                 {
                     var query = context.ProductoActualizar(producto.IdProducto,producto.Nombre, producto.Descripcion, producto.Precio,producto.Imagen, producto.Stock);
                     if (query > 0)
@@ -43,7 +43,7 @@ namespace LogicaNegocio
             Atributos.Result result = new Atributos.Result();
             try
             {
-                using (AccesoDatos.BriveSucursalEntitiest context = new AccesoDatos.BriveSucursalEntitiest())
+                using (AccesoDatos.BriveSucursalEntities context = new AccesoDatos.BriveSucursalEntities())
                 {
                     var query = context.ProductoMostrarTodo().ToList();
 
@@ -85,7 +85,7 @@ namespace LogicaNegocio
             Atributos.Result result = new Atributos.Result();
             try
             {
-                using (AccesoDatos.BriveSucursalEntitiest context = new AccesoDatos.BriveSucursalEntitiest())
+                using (AccesoDatos.BriveSucursalEntities context = new AccesoDatos.BriveSucursalEntities())
                 {
                     var query = context.ProductoAgregar(producto.Nombre, producto.Descripcion, producto.Precio, producto.Imagen, producto.Stock);
                     if (query > 0)
@@ -111,7 +111,7 @@ namespace LogicaNegocio
             Atributos.Result result = new Atributos.Result();
             try
             {
-                using (AccesoDatos.BriveSucursalEntitiest context = new AccesoDatos.BriveSucursalEntitiest())
+                using (AccesoDatos.BriveSucursalEntities context = new AccesoDatos.BriveSucursalEntities())
                 {
                     var obj = context.ProductoMostrarUno(IdProducto).FirstOrDefault();
 
@@ -154,7 +154,7 @@ namespace LogicaNegocio
             Atributos.Result result = new Atributos.Result();
             try
             {
-                using (AccesoDatos.BriveSucursalEntitiest context = new AccesoDatos.BriveSucursalEntitiest())
+                using (AccesoDatos.BriveSucursalEntities context = new AccesoDatos.BriveSucursalEntities())
                 {
                     var query = context.ProductoEliminar(IdProducto);
                     if (query > 0)

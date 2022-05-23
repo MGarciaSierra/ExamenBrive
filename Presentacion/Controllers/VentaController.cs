@@ -181,6 +181,7 @@ namespace Presentacion.Controllers
 		} 
 		public ActionResult Procesar() //Realizar el Proceso de la Compra
 		{
+
 			Atributos.Result result = new Atributos.Result();
 			result.Objects = (List<Object>)Session["Carrito"];
 
@@ -196,17 +197,16 @@ namespace Presentacion.Controllers
 
 			result = LogicaNegocio.Venta.Agregar(venta, result.Objects);
 
-			ViewBag.Message = "Compra Realizada Exitosamente";
-
-			//venta.IdVenta = ((Atributos.Venta)result.Object).IdVenta;
 
 			return RedirectToAction("Mostrar","DetalleVenta", new { IdVenta = venta.IdVenta });
+			Session.Clear();
 
 		} 
 
 		public ActionResult ModalCompra()  //Modal de Confirmacion de Compra
 		{
-			ViewBag.Message = "¿Deseas finalizar tu compra?";
+			
+			ViewBag.Message = "¿Deseas Finalizar tu compra?";
 			return PartialView("Modal");
 		}
 

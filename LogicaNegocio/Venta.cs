@@ -26,24 +26,26 @@ namespace LogicaNegocio
 
                         SqlParameter[] collection = new SqlParameter[4];
 
-                        collection[0] = new SqlParameter("IdVenta", SqlDbType.Int);
-                        collection[0].Value = ParameterDirection.Output;
+                        collection[0] = new SqlParameter("IdUsuario", SqlDbType.Int);
+                        collection[0].Value = venta.Usuario.IdUsuario;
 
-                        collection[1] = new SqlParameter("IdUsuario", SqlDbType.Int);
-                        collection[1].Value = venta.Usuario.IdUsuario;
+                        collection[1] = new SqlParameter("Total", SqlDbType.Decimal);
+                        collection[1].Value = venta.Total;
 
-                        collection[2] = new SqlParameter("Total", SqlDbType.Decimal);
-                        collection[2].Value = venta.Total;
+                        collection[2] = new SqlParameter("IdMetodoPago", SqlDbType.Int);
+                        collection[2].Value = venta.MetodoPago.IdMetodoPago;
 
-                        collection[3] = new SqlParameter("IdMetodoPago", SqlDbType.Int);
-                        collection[3].Value = venta.MetodoPago.IdMetodoPago;
+                        collection[3] = new SqlParameter("IdVenta", SqlDbType.Int);
+                        collection[3].Direction = ParameterDirection.Output;
 
                         cmd.Parameters.AddRange(collection);
 
                         cmd.Connection.Open();
 
                         int RowsAffected = cmd.ExecuteNonQuery();
-                        venta.IdVenta = (int)cmd.Parameters["IdVenta"].Value;
+
+                       
+                        venta.IdVenta = Convert.ToInt32(cmd.Parameters["IdVenta"].Value);
 
                         foreach (Atributos.DetalleVenta ventaProducto in Objects)
                         {
@@ -64,12 +66,10 @@ namespace LogicaNegocio
                         else
                         {
                             result.Correct = false;
-                            result.ErrorMessage = "Ocurrió un error al insertar el registro en la tabla Venta";
+                            result.ErrorMessage = "Ocurrió un error al insertar el registro Venta";
                         }
                     }
                 }
-
-
             }
 
             catch (Exception ex)
